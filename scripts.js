@@ -28,7 +28,10 @@ class Calculate {
 class App{
     constructor() {
         this.calc = new Calculate();
-
+        this.promptForInput();
+    }
+    promptForInput() {
+        
         // store the first number
         this.firstPrompt = prompt("Please enter first number.");
         this.firstNumber = parseInt(this.firstPrompt);
@@ -42,15 +45,11 @@ class App{
         this.secondPrompt = prompt("Please enter second number.");
         this.secondNumber = parseInt(this.secondPrompt);
         console.log("secondNumber", this.secondNumber);
-
-        //console.log(this.firstNumber + " " + this.operator + " " + this.secondNumber);
-        console.log(`${this.firstNumber} ${this.operator} ${this.secondNumber}`);
     }
     callCalculations() {
         switch(this.operator) {
             case "+":
                 this.calc.addNumbers(this.firstNumber, this.secondNumber);
-                console.log("total", this.calc.total);
                 break;
             case "-":
                 this.calc.subtractNumbers(this.firstNumber, this.secondNumber);
@@ -63,8 +62,9 @@ class App{
                 break;                    
                     
             default:
-              // code block
-          }
+                // code block
+        }
+        console.log("total", this.calc.total);
     }
     displayResult() {
          
@@ -75,7 +75,6 @@ class App{
     }
 
 }
-//let firstCalculation = new Calculate();
 let startApp = new App();
 startApp.callCalculations();
 startApp.displayResult();
